@@ -9,3 +9,9 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Server läuft unter http://localhost:${port}`);
 });
+{
+  "name": "shopify",
+  "version": "1.0.0",
+  "type": "module", // Fügen Sie dies hinzu
+  ...
+}
