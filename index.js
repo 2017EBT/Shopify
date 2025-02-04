@@ -1,17 +1,30 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+import fetch from 'node-fetch'; // Falls "type": "module" verwendet wird
+import dotenv from 'dotenv';
 
-app.get('/', (req, res) => {
-    res.send('Die Anwendung läuft!');
-});
+dotenv.config();
 
-app.listen(port, () => {
-    console.log(`Server läuft unter http://localhost:${port}`);
-});
-{
-  "name": "shopify",
-  "version": "1.0.0",
-  "type": "module", // Fügen Sie dies hinzu
-  ...
-}
+const API_URL = 'https://app.pdfgeneratorapi.com/templates';
+const API_TOKEN = process.env.516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74e;
+
+const fetchTemplates = async () => {
+    try {
+        const response = await fetch(API_URL, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74e}`,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP Error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Templates:', data);
+    } catch (error) {
+        console.error('Error fetching templates:', error.message);
+    }
+};
+
+fetchTemplates();
