@@ -1,13 +1,13 @@
 const fetch = require('node-fetch');
 
-const apiKey = 'dein_api_key'; // 516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74e
+const apiKey = '516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74e'; // Dein API Key
 
 async function generatePDF() {
     try {
-        const response = await fetch('https://api.pdfgeneratorapi.com/v4/documents', {
+        const response = await fetch('https://us1.pdfgeneratorapi.com/api/v4/documents', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74ey}`, // API Key für die Autorisierung
+                'Authorization': `Bearer ${516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74e}`, // API Key für die Autorisierung
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
@@ -35,4 +35,6 @@ async function generatePDF() {
     }
 }
 
+// Die Funktion ausführen
 generatePDF();
+
