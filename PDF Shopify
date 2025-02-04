@@ -25,3 +25,7 @@ export const generatePDF = async () => {
     console.log('PDF URL:', result.response[0].public_url);
     return result.response[0].public_url;
 };
+headers: {
+    'Authorization': 'Bearer 516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74e',
+    'Content-Type': 'application/json'
+}
