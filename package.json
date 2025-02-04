@@ -33,3 +33,4 @@ app.listen(port, () => {
     console.log(`Server läuft unter http://localhost:${port}`);
 });
 npm install
+node index.js
