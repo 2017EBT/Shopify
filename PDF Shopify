@@ -9,7 +9,7 @@ export const generatePDF = async () => {
         },
         body: JSON.stringify({
             template: {
-                id: 123456,
+                id: 1316398,
                 data: {
                     title: 'My PDF Title',
                     content: '<p>This is my PDF content.</p>',
