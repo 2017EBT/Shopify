@@ -1,30 +1,38 @@
-import fetch from 'node-fetch'; // Falls "type": "module" verwendet wird
-import dotenv from 'dotenv';
+const fetch = require('node-fetch');
 
-dotenv.config();
+const apiKey = 'dein_api_key'; // 516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74e
 
-const API_URL = 'https://app.pdfgeneratorapi.com/templates';
-const API_TOKEN = process.env.516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74e;
-
-const fetchTemplates = async () => {
+async function generatePDF() {
     try {
-        const response = await fetch(API_URL, {
-            method: 'GET',
+        const response = await fetch('https://api.pdfgeneratorapi.com/v4/documents', {
+            method: 'POST',
             headers: {
-                'Authorization': `Bearer ${516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74e}`,
+                'Authorization': `Bearer ${516e43ce0396a107889bc64b5773b16ab84e822c672f4a41df5c7752c121a74ey}`, // API Key für die Autorisierung
                 'Content-Type': 'application/json',
             },
+            body: JSON.stringify({
+                template: {
+                    id: 1316398, // Hier die Template-ID
+                    data: {
+                        title: "Beispiel PDF",
+                        content: "<p>Das ist ein Beispielinhalt.</p>",
+                    },
+                },
+                format: 'pdf',
+                output: 'url',
+                name: 'Generated_PDF',
+            }),
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP Error! Status: ${response.status}`);
+            throw new Error(`Fehler: ${response.statusText}`);
         }
 
-        const data = await response.json();
-        console.log('Templates:', data);
+        const result = await response.json();
+        console.log('PDF URL:', result.response[0].public_url);
     } catch (error) {
-        console.error('Error fetching templates:', error.message);
+        console.error('Fehler beim Generieren des PDFs:', error.message);
     }
-};
+}
 
-fetchTemplates();
+generatePDF();
