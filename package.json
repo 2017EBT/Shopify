@@ -1,35 +1,17 @@
 {
-  "name": "shopify",
-  "version": "1.0.0",
-  "description": "PDF",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/2017EBT/Shopify.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/2017EBT/Shopify/issues"
-  },
-  "homepage": "https://github.com/2017EBT/Shopify#readme",
-  "dependencies": {
-    "express": "^4.21.2",
-    "node-fetch": "^3.3.2",
-    "dotenv": "^16.0.0"
-  }
+    "name": "dein-projekt",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "node-fetch": "^2.6.1"
+    }
 }
-{
-  "name": "dein-projekt",
-  "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
-  "dependencies": {
-    "node-fetch": "^3.2.0"
-  }
-}
-
